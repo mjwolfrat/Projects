@@ -20,10 +20,11 @@ class Boot(models.Model):
     naam = models.CharField(max_length=200)
     haven  = models.ForeignKey('Haven', on_delete=models.SET_NULL, null=True)
     plaatsen = models.IntegerField(default=0)
-
+    
     class Meta: 
         verbose_name = "Boot"
         verbose_name_plural = "Boten"
+
     
     def __str__(self):
         """String for representing the Model object."""
