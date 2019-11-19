@@ -31,16 +31,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
+    <Compile Include="OZsite\leden\admin.py" />
+    <Compile Include="OZsite\leden\apps.py" />
+    <Compile Include="OZsite\leden\migrations\__init__.py" />
+    <Compile Include="OZsite\leden\models.py" />
+    <Compile Include="OZsite\leden\tests.py" />
+    <Compile Include="OZsite\leden\views.py" />
+    <Compile Include="OZsite\leden\__init__.py" />
     <Compile Include="OZsite\__init__.py" />
     <Compile Include="OZsite\settings.py" />
     <Compile Include="OZsite\urls.py" />
     <Compile Include="OZsite\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OZsite\leden\templates\leden\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OZsite\" />
+    <Folder Include="OZsite\leden\" />
+    <Folder Include="OZsite\leden\migrations\" />
+    <Folder Include="OZsite\leden\templates\" />
+    <Folder Include="OZsite\leden\templates\leden\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
