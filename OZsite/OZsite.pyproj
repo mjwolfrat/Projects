@@ -31,29 +31,32 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="leden\admin.py" />
+    <Compile Include="leden\apps.py" />
+    <Compile Include="leden\migrations\__init__.py" />
+    <Compile Include="leden\models.py" />
+    <Compile Include="leden\tests.py" />
+    <Compile Include="leden\views.py" />
+    <Compile Include="leden\__init__.py" />
     <Compile Include="manage.py" />
-    <Compile Include="OZsite\leden\admin.py" />
-    <Compile Include="OZsite\leden\apps.py" />
-    <Compile Include="OZsite\leden\migrations\__init__.py" />
-    <Compile Include="OZsite\leden\models.py" />
-    <Compile Include="OZsite\leden\tests.py" />
-    <Compile Include="OZsite\leden\views.py" />
-    <Compile Include="OZsite\leden\__init__.py" />
+    <Compile Include="leden\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OZsite\__init__.py" />
     <Compile Include="OZsite\settings.py" />
     <Compile Include="OZsite\urls.py" />
     <Compile Include="OZsite\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OZsite\leden\templates\leden\index.html" />
+    <Content Include="leden\templates\leden\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="leden\" />
+    <Folder Include="leden\migrations\" />
+    <Folder Include="leden\templates\" />
+    <Folder Include="leden\templates\leden\" />
     <Folder Include="OZsite\" />
-    <Folder Include="OZsite\leden\" />
-    <Folder Include="OZsite\leden\migrations\" />
-    <Folder Include="OZsite\leden\templates\" />
-    <Folder Include="OZsite\leden\templates\leden\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
