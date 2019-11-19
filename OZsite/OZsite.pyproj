@@ -48,12 +48,16 @@
     <Compile Include="OZsite\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="leden\templates\leden\index.html" />
+    <Content Include="leden\static\CSS\styles.css" />
+    <Content Include="leden\templates\base_generic.html" />
+    <Content Include="leden\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="leden\" />
     <Folder Include="leden\migrations\" />
+    <Folder Include="leden\static\" />
+    <Folder Include="leden\static\CSS\" />
     <Folder Include="leden\templates\" />
     <Folder Include="leden\templates\leden\" />
     <Folder Include="OZsite\" />
