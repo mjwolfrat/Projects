@@ -58,6 +58,7 @@
     <Folder Include="leden\migrations\" />
     <Folder Include="leden\static\" />
     <Folder Include="leden\static\CSS\" />
+    <Folder Include="leden\static\Image\" />
     <Folder Include="leden\templates\" />
     <Folder Include="leden\templates\leden\" />
     <Folder Include="OZsite\" />
