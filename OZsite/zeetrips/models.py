@@ -7,6 +7,7 @@ class Haven(models.Model):
         """String for representing the Model object."""
         return self.plaatsnaam
 
+
 class Boot(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     naam = models.CharField(max_length=200)
@@ -28,21 +29,18 @@ class Boot(models.Model):
 
 import uuid # Required for unique book instances
 
-
-
 from django.contrib.auth.models import User
-
 
 class Vistrip(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unieke ID voor deze trip')
-    boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
     datum = models.DateField(null=True, blank=True)
+    boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
     vissers = models.ManyToManyField(User)
-
+   
     class Meta:
         ordering = ['datum']
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{boot.naam} ({datum})'
+        return f'{self.boot.naam} ({self.datum})'

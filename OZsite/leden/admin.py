@@ -5,3 +5,4 @@ from .models import Boot, Haven
 
 admin.site.register(Boot)
 admin.site.register(Haven)
+
