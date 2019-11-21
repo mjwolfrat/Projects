@@ -32,18 +32,13 @@ import uuid # Required for unique book instances
 
 from django.contrib.auth.models import User
 
-class Geboekt(models.Model):
-    naam = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    class Meta: 
-       verbose_name = "Visser"
-       verbose_name_plural = "Vissers"
 
 class Vistrip(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unieke ID voor deze trip')
     boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
     datum = models.DateField(null=True, blank=True)
-    geboekt = models.ManyToManyField(Geboekt)
+    vissers = models.ManyToManyField(User)
 
     class Meta:
         ordering = ['datum']
