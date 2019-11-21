@@ -30,12 +30,13 @@ from django.urls import include
 
 urlpatterns += [
     path('leden/', include('leden.urls')),
+    path('zeetrips/', include('zeetrips.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='leden/', permanent=True)),
+    path('', RedirectView.as_view(url='zeetrips/', permanent=True)),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)

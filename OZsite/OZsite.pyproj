@@ -46,12 +46,24 @@
     <Compile Include="OZsite\settings.py" />
     <Compile Include="OZsite\urls.py" />
     <Compile Include="OZsite\wsgi.py" />
+    <Compile Include="zeetrips\admin.py" />
+    <Compile Include="zeetrips\apps.py" />
+    <Compile Include="zeetrips\migrations\__init__.py" />
+    <Compile Include="zeetrips\models.py" />
+    <Compile Include="zeetrips\tests.py" />
+    <Compile Include="zeetrips\urls.py" />
+    <Compile Include="zeetrips\views.py" />
+    <Compile Include="zeetrips\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="leden\static\CSS\styles.css" />
     <Content Include="leden\templates\base_generic.html" />
     <Content Include="leden\templates\index.html" />
     <Content Include="requirements.txt" />
+    <Content Include="zeetrips\static\CSS\styles.css" />
+    <Content Include="zeetrips\templates\base_generic.html" />
+    <Content Include="zeetrips\templates\index.html" />
+    <Content Include="zeetrips\templates\zeetrips\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="leden\" />
@@ -62,6 +74,13 @@
     <Folder Include="leden\templates\" />
     <Folder Include="leden\templates\leden\" />
     <Folder Include="OZsite\" />
+    <Folder Include="zeetrips\" />
+    <Folder Include="zeetrips\migrations\" />
+    <Folder Include="zeetrips\static\" />
+    <Folder Include="zeetrips\static\CSS\" />
+    <Folder Include="zeetrips\static\Image\" />
+    <Folder Include="zeetrips\templates\" />
+    <Folder Include="zeetrips\templates\zeetrips\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
