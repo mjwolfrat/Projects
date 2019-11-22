@@ -29,7 +29,6 @@ urlpatterns = [
 from django.urls import include
 
 urlpatterns += [
-    path('leden/', include('leden.urls')),
     path('zeetrips/', include('zeetrips.urls')),
 ]
 
