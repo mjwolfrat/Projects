@@ -7,6 +7,17 @@ class Haven(models.Model):
         """String for representing the Model object."""
         return self.plaatsnaam
 
+class Soort_trip(models.Model):
+    """Model representing a book genre."""
+    soort_trip = models.CharField(max_length=200, help_text='vul soort trip in')
+   
+    
+    class Meta: 
+        verbose_name = "Soort trip"
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.soort_trip
 
 class Boot(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
@@ -34,8 +45,9 @@ from django.contrib.auth.models import User
 class Vistrip(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
     id = models.AutoField(primary_key=True, default=0)
-    datum = models.DateField(null=True, blank=True)
+    soort_trip = models.ForeignKey('soort_trip', on_delete=models.SET_NULL, null=True) 
     boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
+    datum = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ['datum']
@@ -48,6 +60,10 @@ class Vistrip(models.Model):
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
     visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta: 
+       verbose_name = "Visplek"
+       verbose_name_plural = "Visplekken"
 
     def __str__(self):
         """String for representing the Model object."""
