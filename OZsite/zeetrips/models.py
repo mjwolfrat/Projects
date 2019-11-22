@@ -10,7 +10,7 @@ class Haven(models.Model):
 
 class Boot(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    naam = models.CharField(max_length=200)
+    naam_boot = models.CharField(max_length=200)
     haven  = models.ForeignKey('Haven', on_delete=models.SET_NULL, null=True)
     plaatsen = models.IntegerField(default=0)
     schipper = models.CharField(max_length=200) 
@@ -21,7 +21,7 @@ class Boot(models.Model):
     
     def __str__(self):
         """String for representing the Model object."""
-        return self.naam
+        return self.naam_boot
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
@@ -43,4 +43,4 @@ class Vistrip(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.boot.naam} ({self.datum})'
+        return f'{self.boot.naam_boot} ({self.datum})'
