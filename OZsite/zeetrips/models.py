@@ -36,11 +36,19 @@ class Vistrip(models.Model):
     id = models.AutoField(primary_key=True, default=0)
     datum = models.DateField(null=True, blank=True)
     boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
-    vissers = models.ManyToManyField(User)
-   
+
     class Meta:
         ordering = ['datum']
 
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.boot.naam_boot} ({self.datum})'
+
+
+class Visplek(models.Model):
+    vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
+    visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f'{self.vistrip} ({self.visser})'
