@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+from datetime import date
+from django.contrib.auth.models import User
 
 class Haven(models.Model):
     """Model representing a book genre."""
@@ -44,7 +47,6 @@ from django.contrib.auth.models import User
 
 class Vistrip(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
-    id = models.AutoField(primary_key=True, default=0)
     soort_trip = models.ForeignKey('soort_trip', on_delete=models.SET_NULL, null=True) 
     boot = models.ForeignKey('Boot', on_delete=models.SET_NULL, null=True) 
     datum = models.DateField(null=True, blank=True)
@@ -56,10 +58,14 @@ class Vistrip(models.Model):
         """String for representing the Model object."""
         return f'{self.boot.naam_boot} ({self.datum})'
 
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for this book."""
+        return reverse('vistrip-detail', args=[str(self.id)])
 
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
     visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID')
 
     class Meta: 
        verbose_name = "Visplek"

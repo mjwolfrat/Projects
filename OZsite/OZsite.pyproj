@@ -50,7 +50,8 @@
     <Content Include="zeetrips\static\CSS\styles.css" />
     <Content Include="zeetrips\templates\base_generic.html" />
     <Content Include="zeetrips\templates\index.html" />
-    <Content Include="zeetrips\templates\zeetrips\index.html" />
+    <Content Include="zeetrips\templates\zeetrips\vistrip_detail.html" />
+    <Content Include="zeetrips\templates\zeetrips\vistrips_list.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OZsite\" />
