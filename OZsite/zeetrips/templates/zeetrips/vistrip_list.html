@@ -1,10 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <div style="padding-top:15px">
-  <h2>Overzicht Zeetrips</h2>
-  <ul>
-    <li><strong>Vistrips:</strong> {{num_vistrips}}</li>
-  </ul>
-  </div>
+<h1>Vistrips</h1>
+{% if vistrip_list %}
+<ul>
+    {% for vistrip in vistrip_list %}
+    <li>
+        <a href="">{{ vistrip.boot }} ({{vistrip.datum}}) </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Er zijn geen vistrips aanwezig.</p>
+{% endif %}
 {% endblock %}

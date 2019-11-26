@@ -16,7 +16,7 @@
         <img src="{% static "image/logopng.png" %}" alt="Logo OZ" style="width:90%; margin-left:5%">
         <h3 class="w3-bar-item">Menu</h3>
         <a class="w3-bar-item w3-button" href="{% url 'index' %}">Home</a>
-        <a class="w3-bar-item w3-button" href="">Alle Trips</a>
+        <a class="w3-bar-item w3-button" href="{% url 'vistrip' %}">Alle Trips</a>
         <a class="w3-bar-item w3-button" href="{% url 'admin:index' %}">Admin site</a>
     </div>
     {% endblock %}
