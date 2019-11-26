@@ -48,6 +48,7 @@
   <ItemGroup>
     <Content Include="requirements.txt" />
     <Content Include="zeetrips\static\CSS\styles.css" />
+    <Content Include="zeetrips\templates\base.html" />
     <Content Include="zeetrips\templates\base_generic.html" />
     <Content Include="zeetrips\templates\index.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrip_detail.html" />
