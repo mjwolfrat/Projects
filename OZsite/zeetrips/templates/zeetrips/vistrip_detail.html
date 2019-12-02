@@ -1,8 +1,10 @@
-﻿{% extends "base_generic.html" %}
-
+﻿{% extends "base.html" %}
+{% block contentheading %}
+Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
+{% endblock %}
 {% block content %}
-<h1>Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"</h1>
-
+<p><strong>Opvarenden</strong></p>
 {% for copy in vistrip.visplek_set.all %}
-
+<p>{{ copy.visser }}</p>
+{% endfor %}
 {% endblock %}

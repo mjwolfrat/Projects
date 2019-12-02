@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-
+{% block contentheading %}
+Vistrips
+{% endblock %}
 {% block content %}
-<h1>Vistrips</h1>
 {% if vistrip_list %}
 <ul>
     {% for vistrip in vistrip_list %}
     <li>
-        <a href="">{{ vistrip.boot }} ({{vistrip.datum}}) </a>
+        <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}}) </a>
     </li>
     {% endfor %}
 </ul>
