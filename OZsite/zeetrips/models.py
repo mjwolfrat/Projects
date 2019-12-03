@@ -62,10 +62,15 @@ class Vistrip(models.Model):
         """Returns the url to access a detail record for this book."""
         return reverse('vistrip-detail', args=[str(self.id)])
 
+    def plek_over_count(self,):
+        return self.boot.plaatsen - self.visplek_set.count()
+
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
     visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID')
+
+    
 
     class Meta: 
        verbose_name = "Visplek"
@@ -74,3 +79,5 @@ class Visplek(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.vistrip} ({self.visser})'
+
+    #https://books.agiliq.com/projects/django-admin-cookbook/en/latest/calculated_fields.html

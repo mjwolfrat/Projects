@@ -3,7 +3,8 @@
 Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 {% endblock %}
 {% block content %}
-<p><strong>Opvarenden</strong> {{ vistrip.visplek_set.count }}</p>
+<p><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</p>
+<p><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</p>
 {% for copy in vistrip.visplek_set.all %}
 <p>{{ copy.visser }}</p>
 {% endfor %}
