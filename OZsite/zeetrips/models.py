@@ -65,6 +65,7 @@ class Vistrip(models.Model):
     def plek_over_count(self,):
         return self.boot.plaatsen - self.visplek_set.count()
 
+
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
     visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

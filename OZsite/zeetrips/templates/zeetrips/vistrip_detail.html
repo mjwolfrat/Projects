@@ -6,6 +6,6 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 <p><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</p>
 <p><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</p>
 {% for copy in vistrip.visplek_set.all %}
-<p>{{ copy.visser }}</p>
+<p>{{ copy.visser.get_full_name }}</p>
 {% endfor %}
 {% endblock %}
