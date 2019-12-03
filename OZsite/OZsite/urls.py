@@ -30,6 +30,7 @@ from django.urls import include
 
 urlpatterns += [
     path('zeetrips/', include('zeetrips.urls')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 #Add URL maps to redirect the base URL to our application

@@ -9,7 +9,7 @@ def index(request):
     
     context = {
         'num_vistrips': num_vistrips,
-
+     
     }
 
     # Render the HTML template index.html with the data in the context variable

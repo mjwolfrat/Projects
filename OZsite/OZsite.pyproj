@@ -47,6 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="templates\registration\login.html" />
+    <Content Include="templates\registration\logged_out.html" />
+    <Content Include="templates\registration\password_reset_complete.html" />
+    <Content Include="templates\registration\password_reset_confirm.html" />
+    <Content Include="templates\registration\password_reset_done.html" />
+    <Content Include="templates\registration\password_reset_email.html" />
+    <Content Include="templates\registration\password_reset_form.html" />
     <Content Include="zeetrips\static\CSS\styles.css" />
     <Content Include="zeetrips\templates\base.html" />
     <Content Include="zeetrips\templates\base_generic.html" />
@@ -55,7 +62,9 @@
     <Content Include="zeetrips\templates\zeetrips\vistrip_list.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="templates\" />
     <Folder Include="OZsite\" />
+    <Folder Include="templates\registration\" />
     <Folder Include="zeetrips\" />
     <Folder Include="zeetrips\migrations\" />
     <Folder Include="zeetrips\static\" />
