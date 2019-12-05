@@ -9,13 +9,16 @@ Vistrips
     <li>
         <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}})  </a>
         <br>
-        <a>beschikbare plaatsen: {{vistrip.plek_over_count}}</a>
+        {% if not vistrip.plek_over_count == 1 %}
+        <a>nog {{vistrip.plek_over_count}} plaatsen beschikbaar</a>
+        {%endif%}
+        {% if vistrip.plek_over_count == 1 %}
+        <a>nog {{vistrip.plek_over_count}} plaats beschikbaar</a>
+        {%endif%}
     </li>
-    <br />
-    <p>
-        <a href="{{ vistrip.get_absolute_url }}">{{vistrip.soort_trip}} {{ vistrip.boot }}</a> ({{vistrip.datum}}) 
- </p>
+    <br>
     {% endfor %}
+
 </ul>
 {% else %}
 <p>Er zijn geen vistrips aanwezig.</p>
