@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block contentheading %}
-Overzicht Zeetrips
+Operatie Zeepier
 {% endblock %}
 {% block content %}
+ {% load static %}
+            <img src="{% static "image/1.jpg" %}" alt="My image" width="100%">
+            <img src="{% static "image/2.jpg" %}" alt="My image2">
   <ul>
     <li><strong>Vistrips:</strong> {{num_vistrips}}</li>
   </ul>

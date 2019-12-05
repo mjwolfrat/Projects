@@ -6,9 +6,9 @@ Vistrips
 {% if vistrip_list %}
 <ul>
     {% for vistrip in vistrip_list %}
-    <li>
-        <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}}) </a>
-    </li>
+    <p>
+        <a href="{{ vistrip.get_absolute_url }}">{{vistrip.soort_trip}} {{ vistrip.boot }}</a> ({{vistrip.datum}}) 
+ </p>
     {% endfor %}
 </ul>
 {% else %}

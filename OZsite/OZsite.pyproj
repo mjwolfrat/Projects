@@ -54,8 +54,12 @@
     <Content Include="templates\registration\password_reset_done.html" />
     <Content Include="templates\registration\password_reset_email.html" />
     <Content Include="templates\registration\password_reset_form.html" />
+    <Content Include="zeetrips\static\Image\1.jpg" />
     <Content Include="zeetrips\static\CSS\styles.css" />
+    <Content Include="zeetrips\static\Image\2.jpg" />
+    <Content Include="zeetrips\static\Image\logopng.png" />
     <Content Include="zeetrips\templates\base.html" />
+    <Content Include="zeetrips\templates\Base2.html" />
     <Content Include="zeetrips\templates\base_generic.html" />
     <Content Include="zeetrips\templates\index.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrip_detail.html" />
