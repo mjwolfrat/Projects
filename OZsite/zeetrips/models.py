@@ -79,6 +79,6 @@ class Visplek(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.vistrip} ({self.visser})'
+        return f'{self.vistrip}'
 
     #https://books.agiliq.com/projects/django-admin-cookbook/en/latest/calculated_fields.html

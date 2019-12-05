@@ -1,0 +1,20 @@
+﻿{% extends "base.html" %}
+{% block contentheading %}
+Mijn Vistrips
+{% endblock %}
+{% block content %}
+
+{% if visplek_list %}
+<ul>
+
+    {% for visplek in visplek_list %}
+    <li>
+        <a href="{% url 'vistrip-detail' visplek.vistrip.pk %}">{{visplek}}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>Er zijn geen trips</p>
+{% endif %}
+{% endblock %}

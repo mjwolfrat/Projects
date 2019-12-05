@@ -22,3 +22,14 @@ class VistripInline(admin.TabularInline):
 class BootAdmin(admin.ModelAdmin):
     list_display = ('naam_boot', 'plaatsen','haven')
     inlines = [VistripInline]
+
+class VisplekAdmin(admin.ModelAdmin):
+    list_display = ('vistrip', 'visser', 'id')
+    list_filter = ('vistrip', 'visser')
+    
+    fieldsets = (
+        (None, {
+            'fields': ('vistrip', 'visser')
+        }),
+    
+    )

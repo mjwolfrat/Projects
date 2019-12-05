@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from zeetrips.models import Vistrip
+from zeetrips.models import Vistrip,Visplek
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     """View function for home page of site."""
@@ -28,3 +29,13 @@ class VistripListView(generic.ListView):
 
 class VistripDetailView(generic.DetailView):
     model = Vistrip
+
+
+class MijnTripsByUserListView(LoginRequiredMixin,generic.ListView):
+    """Generic class-based view listing books on loan to current user."""
+    model = Visplek
+    template_name ='zeetrips/Vistrips_user.html'
+    paginate_by = 10
+    
+    def get_queryset(self):
+        return Visplek.objects.filter(visser=self.request.user)
