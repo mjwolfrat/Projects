@@ -7,8 +7,11 @@ Vistrips
 <ul>
     {% for vistrip in vistrip_list %}
     <li>
-        <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}}) </a>
+        <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}})  </a>
+        <br>
+        <a>beschikbare plaatsen: {{vistrip.plek_over_count}}</a>
     </li>
+    <br />
     {% endfor %}
 </ul>
 {% else %}
