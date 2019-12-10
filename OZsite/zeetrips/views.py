@@ -2,8 +2,7 @@ from django.shortcuts import render
 from zeetrips.models import Vistrip,Visplek
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+
 
 def index(request):
     """View function for home page of site."""
@@ -54,4 +53,4 @@ def showform(request):
   
     context= {'form': form }
         
-    return render(request, 'zeetrips/WebPage1.html', context)
+    return render(request, 'zeetrips/Inschrijven.html', context)
