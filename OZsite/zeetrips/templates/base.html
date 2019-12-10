@@ -54,6 +54,7 @@
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'index' %}">Home</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'vistrip' %}">Alle Trips</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'admin:index' %}">Admin site</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'inschrijven' %}">inschrijven</a>
  <br />
      {% if user.is_authenticated %}
   <a class="w3-bar-item w3-button w3-hover-white">User: {{ user.get_username }}</a>

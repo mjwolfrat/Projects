@@ -38,6 +38,7 @@
     <Compile Include="OZsite\wsgi.py" />
     <Compile Include="zeetrips\admin.py" />
     <Compile Include="zeetrips\apps.py" />
+    <Compile Include="zeetrips\forms.py" />
     <Compile Include="zeetrips\migrations\__init__.py" />
     <Compile Include="zeetrips\models.py" />
     <Compile Include="zeetrips\tests.py" />
@@ -65,6 +66,7 @@
     <Content Include="zeetrips\templates\zeetrips\vistrip_detail.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrip_list.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrips_user.html" />
+    <Content Include="zeetrips\templates\zeetrips\WebPage1.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="templates\" />

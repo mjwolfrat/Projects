@@ -39,3 +39,15 @@ class MijnTripsByUserListView(LoginRequiredMixin,generic.ListView):
     
     def get_queryset(self):
         return Visplek.objects.filter(visser=self.request.user)
+
+from django.shortcuts import render
+from .forms import VisplekForm
+
+def showform(request):
+    form= VisplekForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+  
+    context= {'form': form }
+        
+    return render(request, 'zeetrips/WebPage1.html', context)
