@@ -2,9 +2,12 @@
 
 
 {% block contentheading %}
-Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
+Vistrip "{{ vistrip.boot }} {{vistrip.datum}}" 
+
 {% endblock %}
 {% block content %}
+<a href="{% url 'inschrijven2' vistrip.id %}">Beheer</a> 
+
 <h3><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</h3>
 <h3><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</h3>
 
