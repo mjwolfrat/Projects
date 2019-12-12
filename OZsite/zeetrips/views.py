@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from zeetrips.models import Vistrip,Visplek
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -59,14 +59,17 @@ def showform(request):
 
 def Inschrijven2(request, vistrip_id):
     vistrip = Vistrip.objects.get(pk=vistrip_id)
-    VisserFromSet = inlineformset_factory(Vistrip, Visplek, fields=('visser',))
+    plekover = vistrip.boot.plaatsen - vistrip.visplek_set.count()
+    plaatsen = vistrip.boot.plaatsen
+
+    VisserFromSet = inlineformset_factory(Vistrip, Visplek, fields=('visser',),extra=plekover,max_num=plaatsen)
 
     if request.method == 'POST':
         formset = VisserFromSet(request.POST, instance=vistrip)
         if formset.is_valid():
             formset.save()
-            return redirect(request, 'inschrijven2', vistrip_id=vistrip.id)
+            return redirect('inschrijven2', vistrip_id=vistrip.id)
 
     formset = VisserFromSet(instance=vistrip)
 
-    return render(request, 'zeetrips/inschrijven2.html', {'formset' : formset})
+    return render(request, 'zeetrips/inschrijven2.html', {'formset' : formset, 'plaatsen': plaatsen, 'plekover' : plekover} )

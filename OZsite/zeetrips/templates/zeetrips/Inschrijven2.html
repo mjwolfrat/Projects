@@ -2,13 +2,15 @@
 
 
 {% block contentheading %}
-Inschrijven voor vistrip"
+Inschrijven voor vistrip
+
 {% endblock %}
 {% block content %}
+{{plaatsen}} plaatsen totaal - {{plekover}} plaasten vrij
 <form method="post" action="">
-{% csrf_token %}
-{{formset.as_p}}
-<button type="submit">Save<</button>>
+    {% csrf_token %}
+    {{formset.as_p}}
+    <button type="submit">Save</button>
 </form>
 
 
