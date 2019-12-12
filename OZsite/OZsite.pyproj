@@ -63,6 +63,7 @@
     <Content Include="zeetrips\templates\Base2.html" />
     <Content Include="zeetrips\templates\base_generic.html" />
     <Content Include="zeetrips\templates\index.html" />
+    <Content Include="zeetrips\templates\zeetrips\Inschrijven2.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrip_detail.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrip_list.html" />
     <Content Include="zeetrips\templates\zeetrips\vistrips_user.html" />

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from zeetrips.models import Vistrip,Visplek
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.forms import inlineformset_factory
 
 
 def index(request):
@@ -54,3 +55,18 @@ def showform(request):
     context= {'form': form }
         
     return render(request, 'zeetrips/Inschrijven.html', context)
+
+
+def Inschrijven2(request, vistrip_id):
+    vistrip = Vistrip.objects.get(pk=vistrip_id)
+    VisserFromSet = inlineformset_factory(Vistrip, Visplek, fields=('visser',))
+
+    if request.method == 'POST':
+        formset = VisserFromSet(request.POST, instance=vistrip)
+        if formset.is_valid():
+            formset.save()
+            return redirect(request, 'inschrijven2', vistrip_id=vistrip.id)
+
+    formset = VisserFromSet(instance=vistrip)
+
+    return render(request, 'zeetrips/inschrijven2.html', {'formset' : formset})
