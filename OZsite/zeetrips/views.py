@@ -49,7 +49,7 @@ def showform(request):
     form= VisplekForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('mijn-trips') )
+        return redirect('mijn-trips')
 
   
     context= {'form': form }
