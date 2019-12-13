@@ -46,7 +46,7 @@ from django.shortcuts import render
 from .forms import VisplekForm
 
 def showform(request):
-    form= VisplekForm(request.POST or None)
+    form= VisplekForm(request.POST)
     if form.is_valid():
         form.save()
         return redirect('mijn-trips')
