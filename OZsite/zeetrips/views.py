@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from zeetrips.models import Vistrip,Visplek
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
+from django.views.generic.edit import FormMixin
+from django.views.generic.detail import DetailView
+from .forms import VisplekForm
+from django.urls import reverse
 
 
 def index(request):
@@ -29,8 +33,33 @@ class VistripListView(generic.ListView):
         context['some_data'] = 'This is just some data'
         return context
 
-class VistripDetailView(generic.DetailView):
+class VistripDetailView(FormMixin, DetailView):
+    template_name='zeetrips/vistrip_detail.html'
     model = Vistrip
+    form_class = VisplekForm
+
+    def get_success_url(self):
+        return reverse('vistrip-detail', kwargs={'pk': self.object.id})
+
+    def get_context_data(self, **kwargs):
+        context = super(VistripDetailView, self).get_context_data(**kwargs)
+        context['form'] = VisplekForm(initial={'vistrip': self.object, 'visser':self.request.user})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.save()
+        return super(VistripDetailView, self).form_valid(form)
+
+
+
 
 
 class MijnTripsByUserListView(LoginRequiredMixin,generic.ListView):

@@ -16,11 +16,9 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 <div>{{ copy.visser.get_full_name }}</div>
 {% endfor %}
 
-<form method="POST" class="post-form">{% csrf_token %}
-        {{ form }}
-        <button type="submit" class="save btn btn-default">Inschrijven</button>
+<form target="{% url 'vistrip-detail' vistrip.id %}">
+<button type="submit">inschrijven</button>
     </form>
-
 
 {% endblock %}
 
