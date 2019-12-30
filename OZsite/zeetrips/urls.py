@@ -9,5 +9,5 @@ urlpatterns = [
     path('vistrip/<int:pk>', views.VistripDetailView.as_view(), name='vistrip-detail'),
     path('mijntrips/', views.MijnTripsByUserListView.as_view(), name='mijn-trips'),
     path('inschrijven/', views.showform, name='inschrijven'),
-    path('vistrips/<vistrip_id>', views.Inschrijven2, name='inschrijven2'),
+    path('vistrips/<vistrip_id>', views.BeheerTrip, name='beheer-trip'),
 ]

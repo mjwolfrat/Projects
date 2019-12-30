@@ -86,7 +86,7 @@ def showform(request):
     return render(request, 'zeetrips/Inschrijven.html', context)
 
 
-def Inschrijven2(request, vistrip_id):
+def BeheerTrip(request, vistrip_id):
     vistrip = Vistrip.objects.get(pk=vistrip_id)
     plekover = vistrip.boot.plaatsen - vistrip.visplek_set.count()
     plaatsen = vistrip.boot.plaatsen
@@ -97,8 +97,8 @@ def Inschrijven2(request, vistrip_id):
         formset = VisserFromSet(request.POST, instance=vistrip)
         if formset.is_valid():
             formset.save()
-            return redirect('inschrijven2', vistrip_id=vistrip.id)
+            return redirect('beheer-trip', vistrip_id=vistrip.id)
 
     formset = VisserFromSet(instance=vistrip)
 
-    return render(request, 'zeetrips/inschrijven2.html', {'formset' : formset, 'plaatsen': plaatsen, 'plekover' : plekover} )
+    return render(request, 'zeetrips/Beheer_Trip.html', {'formset' : formset, 'plaatsen': plaatsen, 'plekover' : plekover} )
