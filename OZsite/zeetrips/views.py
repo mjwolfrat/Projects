@@ -97,7 +97,7 @@ def BeheerTrip(request, vistrip_id):
         formset = VisserFromSet(request.POST, instance=vistrip)
         if formset.is_valid():
             formset.save()
-            return redirect('beheer-trip', vistrip_id=vistrip.id)
+            return redirect('vistrip-detail', pk=vistrip_id)
 
     formset = VisserFromSet(instance=vistrip)
 
