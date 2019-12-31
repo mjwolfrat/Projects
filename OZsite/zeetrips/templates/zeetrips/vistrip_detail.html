@@ -15,8 +15,9 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 {% for copy in vistrip.visplek_set.all %}
 <div>{{ copy.visser.get_full_name }}</div>
 {% endfor %}
-{% if perms.zeetrips.can_add_vistrip %}
 
+{% if vistrip.plek_over_count > 0 %}
+{% if perms.zeetrips.can_add_vistrip %}
 <form method="POST" class="post-form">{% csrf_token %}
         {{ form }}
         <button type="submit" class="save btn btn-default">Inschrijven</button>
@@ -24,6 +25,6 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
     <!-- We can mark a BookInstance as returned. -->
     <!-- Perhaps add code to link to a "book return" view here. -->
 {% endif %}
-
+{% endif %}
 {% endblock %}
 
