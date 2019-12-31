@@ -69,13 +69,12 @@ class Vistrip(models.Model):
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
     visser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID')
-
-    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID')  
 
     class Meta: 
        verbose_name = "Visplek"
        verbose_name_plural = "Visplekken"
+       permissions = (("can_addvisplek", "|Inschrijven voor visplek"),)   
 
     def __str__(self):
         """String for representing the Model object."""

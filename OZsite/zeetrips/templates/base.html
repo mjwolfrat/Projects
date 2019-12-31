@@ -57,7 +57,7 @@
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'inschrijven' %}">inschrijven</a>
  <br />
      {% if user.is_authenticated %}
-  <a class="w3-bar-item w3-button w3-hover-white">User: {{ user.get_username }}</a>
+  <a class="w3-bar-item w3-button w3-hover-white">User: {{ user.get_full_name }}</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'mijn-trips' %}">Mijn trips</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="{% url 'logout'%}?next={{request.path}}">Logout</a> 
    {% else %}
