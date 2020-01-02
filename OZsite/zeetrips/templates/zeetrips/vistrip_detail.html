@@ -10,13 +10,19 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 
 <h3><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</h3>
 <h3><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</h3>
+{% if vistrip.plek_over_count >= 0 %}
+Reserveplekken = 5
+{% endif %}
+{% if vistrip.plek_over_count < 0 %}
+Reserveplekken = {{vistrip.reverveplek_over_count}}
+{% endif %}
 
 <strong>Opvarenden:</strong> 
 {% for copy in vistrip.visplek_set.all %}
 <div>{{ copy.visser.get_full_name }}</div>
 {% endfor %}
 
-{% if vistrip.plek_over_count > 0 %}
+{% if vistrip.reverveplek_over_count > 0 %}
 {% if perms.zeetrips.can_add_vistrip %}
 <form method="POST" class="post-form">{% csrf_token %}
         {{ form }}
