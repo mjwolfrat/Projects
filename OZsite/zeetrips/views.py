@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
 from django.views.generic.edit import FormMixin
 from django.views.generic.detail import DetailView
-from .forms import VisplekForm
+from .forms import VisplekinschrijfForm
 from django.urls import reverse
 
 
@@ -36,14 +36,14 @@ class VistripListView(generic.ListView):
 class VistripDetailView(FormMixin, DetailView):
     template_name='zeetrips/vistrip_detail.html'
     model = Vistrip
-    form_class = VisplekForm
+    form_class = VisplekinschrijfForm
 
     def get_success_url(self):
         return reverse('vistrip-detail', kwargs={'pk': self.object.id})
 
     def get_context_data(self, **kwargs):
         context = super(VistripDetailView, self).get_context_data(**kwargs)
-        context['form'] = VisplekForm(initial={'vistrip': self.object, 'visser':self.request.user})
+        context['form'] = VisplekinschrijfForm(initial={'vistrip': self.object, 'visser':self.request.user})
         return context
 
     def post(self, request, *args, **kwargs):
@@ -57,10 +57,6 @@ class VistripDetailView(FormMixin, DetailView):
     def form_valid(self, form):
         form.save()
         return super(VistripDetailView, self).form_valid(form)
-
-
-
-
 
 class MijnTripsByUserListView(LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
@@ -84,7 +80,6 @@ def showform(request):
     context= {'form': form }
         
     return render(request, 'zeetrips/Inschrijven.html', context)
-
 
 def BeheerTrip(request, vistrip_id):
     vistrip = Vistrip.objects.get(pk=vistrip_id)
