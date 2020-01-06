@@ -8,20 +8,20 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 {% block content %}
 <a href="{% url 'beheer-trip' vistrip.id %}">Beheer</a> 
 
-<h3><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</h3>
+<h3><strong>Totaal aantal plekken: </strong> {{vistrip.boot.plaatsen}}</h3>
 {% if vistrip.plek_over_count >= 0 %}
-<h3><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</h3>
+<h3><strong>Beschikbare plekken: </strong> {{vistrip.plek_over_count}}</h3>
 {% endif %}
 {% if vistrip.plek_over_count < 0 %}
-<h3><strong>Beschikbare plekken</strong> 0 </h3>
+<h3><strong>Beschikbare plekken: </strong> 0 </h3>
 {% endif %}
 
 
 {% if vistrip.plek_over_count >= 0 %}
-<h3>Reserveplekken = 5</h3>
+<h3>Reserveplekken: 5</h3>
 {% endif %}
 {% if vistrip.plek_over_count < 0 %}
-<h3>Reserveplekken = {{vistrip.reverveplek_over_count}}</h3>
+<h3>Reserveplekken: {{vistrip.reverveplek_over_count}}</h3>
 {% endif %}
 
 <strong>Opvarenden:</strong> 
@@ -33,7 +33,7 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 
 {% if forloop.counter == vistrip.reverveplek_gebruiken %}
 <br />
-<strong>Reserveplekken:</strong>
+<strong>Reserves:</strong>
 {% endif %}
 
 {% if forloop.counter > vistrip.boot.plaatsen %} 
@@ -46,6 +46,7 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 {% if perms.zeetrips.can_add_vistrip %}
 <form method="POST" class="post-form">{% csrf_token %}
         {{ form }}
+    <br/>
         <button type="submit" class="save btn btn-default">Inschrijven</button>
     </form>
     <!-- We can mark a BookInstance as returned. -->
