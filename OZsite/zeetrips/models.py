@@ -78,6 +78,7 @@ class Visplek(models.Model):
        verbose_name = "Visplek"
        verbose_name_plural = "Visplekken"
        permissions = (("can_addvisplek", "|Inschrijven voor visplek"),)   
+       unique_together = ['vistrip', 'visser']
 
     def __str__(self):
         """String for representing the Model object."""
