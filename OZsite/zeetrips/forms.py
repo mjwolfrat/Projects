@@ -12,3 +12,4 @@ class VisplekinschrijfForm(forms.ModelForm):
         model= Visplek
         fields= ["vistrip", "visser", ]
         widgets = {'vistrip': forms.HiddenInput(),'visser': forms.HiddenInput()  }
+        

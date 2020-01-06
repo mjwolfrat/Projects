@@ -9,17 +9,37 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 <a href="{% url 'beheer-trip' vistrip.id %}">Beheer</a> 
 
 <h3><strong>Totaal aantal plekken</strong> {{vistrip.boot.plaatsen}}</h3>
-<h3><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</h3>
 {% if vistrip.plek_over_count >= 0 %}
-Reserveplekken = 5
+<h3><strong>Beschikbare plekken</strong> {{vistrip.plek_over_count}}</h3>
 {% endif %}
 {% if vistrip.plek_over_count < 0 %}
-Reserveplekken = {{vistrip.reverveplek_over_count}}
+<h3><strong>Beschikbare plekken</strong> 0 </h3>
+{% endif %}
+
+
+{% if vistrip.plek_over_count >= 0 %}
+<h3>Reserveplekken = 5</h3>
+{% endif %}
+{% if vistrip.plek_over_count < 0 %}
+<h3>Reserveplekken = {{vistrip.reverveplek_over_count}}</h3>
 {% endif %}
 
 <strong>Opvarenden:</strong> 
 {% for copy in vistrip.visplek_set.all %}
+
+{% if forloop.counter <= vistrip.boot.plaatsen %} 
 <div>{{ copy.visser.get_full_name }}</div>
+{% endif %}
+
+{% if forloop.counter == vistrip.reverveplek_gebruiken %}
+<br />
+<strong>Reserveplekken:</strong>
+{% endif %}
+
+{% if forloop.counter > vistrip.boot.plaatsen %} 
+<div>{{ copy.visser.get_full_name }}</div>
+{% endif %}
+
 {% endfor %}
 
 {% if vistrip.reverveplek_over_count > 0 %}

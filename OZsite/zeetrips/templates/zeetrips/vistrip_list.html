@@ -10,10 +10,16 @@ Vistrips
         <a href="{{ vistrip.get_absolute_url }}">{{ vistrip.boot }} ({{vistrip.datum}})  </a>
         <br>
         {% if not vistrip.plek_over_count == 1 %}
-        <a>nog {{vistrip.plek_over_count}} plaatsen beschikbaar</a>
+            {% if vistrip.plek_over_count > 0 %}
+                <a>nog {{vistrip.plek_over_count}} plaatsen beschikbaar</a>
+            {%endif%}
+            {% if vistrip.plek_over_count <= 0 %}
+                <a> 0 plaatsen beschikbaar</a>
+            {%endif%}
         {%endif%}
+
         {% if vistrip.plek_over_count == 1 %}
-        <a>nog {{vistrip.plek_over_count}} plaats beschikbaar</a>
+            <a>nog {{vistrip.plek_over_count}} plaats beschikbaar</a>
         {%endif%}
     </li>
     <br>

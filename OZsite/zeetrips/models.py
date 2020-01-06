@@ -68,6 +68,8 @@ class Vistrip(models.Model):
     def reverveplek_over_count(self,):
         return self.boot.plaatsen+5 - self.visplek_set.count()
 
+    def reverveplek_gebruiken(self,):
+        return self.boot.plaatsen+1
 
 class Visplek(models.Model):
     vistrip =  models.ForeignKey('Vistrip', on_delete=models.SET_NULL, null=True)
@@ -78,7 +80,7 @@ class Visplek(models.Model):
        verbose_name = "Visplek"
        verbose_name_plural = "Visplekken"
        permissions = (("can_addvisplek", "|Inschrijven voor visplek"),)   
-       unique_together = ['vistrip', 'visser']
+       #unique_together = ['vistrip', 'visser']
 
     def __str__(self):
         """String for representing the Model object."""
