@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from zeetrips.models import Vistrip,Visplek
+from zeetrips.models import Vistrip,Visplek,Boot
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
@@ -12,10 +12,13 @@ from django.urls import reverse
 def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects
+    test1 = Vistrip.objects.filter(boot__naam_boot__iexact='Wiesje')
+    test2 = Visplek.objects.filter(visser__username__icontains=request.user)
+   
     num_vistrips =Vistrip.objects.all().count()
     
     context = {
-        'num_vistrips': num_vistrips,
+        'num_vistrips': num_vistrips,'test': test,
      
     }
 
@@ -37,6 +40,7 @@ class VistripDetailView(FormMixin, DetailView):
     template_name='zeetrips/vistrip_detail.html'
     model = Vistrip
     form_class = VisplekinschrijfForm
+    
 
     def get_success_url(self):
         return reverse('vistrip-detail', kwargs={'pk': self.object.id})
