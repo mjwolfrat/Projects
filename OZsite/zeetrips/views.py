@@ -13,8 +13,8 @@ def index(request):
     """View function for home page of site."""
     # Generate counts of some of the main objects
     test1 = Vistrip.objects.filter(boot__naam_boot__iexact='Wiesje')
-    test2 = Visplek.objects.filter(visser__username__icontains=request.user)
-   
+    if Visplek.objects.filter(vistrip__pk=3, visser__username__icontains=request.user).exists:
+        test = 'ja'
     num_vistrips =Vistrip.objects.all().count()
     
     context = {
@@ -40,13 +40,17 @@ class VistripDetailView(FormMixin, DetailView):
     template_name='zeetrips/vistrip_detail.html'
     model = Vistrip
     form_class = VisplekinschrijfForm
-    
 
+        
     def get_success_url(self):
         return reverse('vistrip-detail', kwargs={'pk': self.object.id})
 
     def get_context_data(self, **kwargs):
+        if Visplek.objects.filter(vistrip__pk=self.object.pk, visser__username__icontains=self.request.user).exists: 
+            test = self.object.pk
+
         context = super(VistripDetailView, self).get_context_data(**kwargs)
+        context['test'] = test
         context['form'] = VisplekinschrijfForm(initial={'vistrip': self.object, 'visser':self.request.user})
         return context
 
