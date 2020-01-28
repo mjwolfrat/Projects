@@ -44,6 +44,7 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
 
 {% if vistrip.reverveplek_over_count > 0 %}
 {% if perms.zeetrips.can_add_vistrip %}
+{% if ingeschreven == "nee"  %}
 <form method="POST" class="post-form">{% csrf_token %}
         {{ form }}
     <br/>
@@ -53,6 +54,7 @@ Vistrip "{{ vistrip.boot }} {{vistrip.datum}}"
     <!-- Perhaps add code to link to a "book return" view here. -->
 {% endif %}
 {% endif %}
-{{ingeschreven}}
+{% endif %}
+
 {% endblock %}
 
