@@ -51,7 +51,6 @@ class VistripDetailView(FormMixin, DetailView):
         else:
             ingeschreven ='nee'
           
-
         context = super(VistripDetailView, self).get_context_data(**kwargs)
         context['ingeschreven'] = ingeschreven
         context['form'] = VisplekinschrijfForm(initial={'vistrip': self.object, 'visser':self.request.user})
@@ -86,8 +85,6 @@ def showform(request):
     if form.is_valid():
         form.save()
         return redirect('mijn-trips')
-
-  
     context= {'form': form }
         
     return render(request, 'zeetrips/Inschrijven.html', context)
