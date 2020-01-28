@@ -46,11 +46,14 @@ class VistripDetailView(FormMixin, DetailView):
         return reverse('vistrip-detail', kwargs={'pk': self.object.id})
 
     def get_context_data(self, **kwargs):
-        if Visplek.objects.filter(vistrip__pk=self.object.pk, visser__username__icontains=self.request.user).exists: 
-            test = self.object.pk
+        if Visplek.objects.filter(vistrip=self.object,visser__username=self.request.user).exists():
+            ingeschreven = 'ja'
+        else:
+            ingeschreven ='nee'
+          
 
         context = super(VistripDetailView, self).get_context_data(**kwargs)
-        context['test'] = test
+        context['ingeschreven'] = ingeschreven
         context['form'] = VisplekinschrijfForm(initial={'vistrip': self.object, 'visser':self.request.user})
         return context
 
